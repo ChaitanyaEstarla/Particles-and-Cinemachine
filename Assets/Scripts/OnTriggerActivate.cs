@@ -1,16 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class OnTriggerActivate : MonoBehaviour
 {
-    void Start()
+    public ParticleSystem particle;
+    
+    private void OnTriggerEnter(Collider other)
     {
-        
+        particle.Play();
     }
 
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        particle.Stop();
     }
 }

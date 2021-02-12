@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManger : MonoBehaviour
 {
     public GameObject dollyCam;
+    public List<ParticleSystem> allParticles;
+    public Light fireLight;
 
     void Start()
     {
@@ -16,6 +18,11 @@ public class GameManger : MonoBehaviour
     {
         yield return new WaitForSeconds(11);
         dollyCam.SetActive(false);
-    }
+        foreach (ParticleSystem particle in allParticles)
+        {
+            particle.Stop();
+        }
 
+        //fireLight.enabled = false;
+    }
 }
